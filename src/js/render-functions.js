@@ -44,3 +44,13 @@ export function showError() {
     iconUrl: errorIcon,
   });
 }
+
+export function showMessage() {
+  iziToast.info({
+    message: `We're sorry, but you've reached the end of search results.
+`,
+    position: 'topRight',
+    messageColor: '#ffffff',
+    color: '#3498db',
+  });
+}
