@@ -33,6 +33,11 @@
   animation: spinx 5s linear infinite;
 }
 
+.loaderBottom {
+  position: relative;
+  margin-top: 20px;
+}
+
 .hidden {
   display: none;
 }
@@ -132,7 +137,8 @@
 
 .image {
   width: 100%;
-  height: auto;
+  height: 152px;
+  object-fit: cover;
   display: block;
 }
 

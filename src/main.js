@@ -68,14 +68,15 @@ form.addEventListener('submit', async e => {
 
 loadMoreBtn.addEventListener('click', async e => {
   e.preventDefault();
+  loader.classList.add('loaderBottom');
   loader.classList.remove('hidden');
   params.page += 1;
 
   try {
     const data = await findImg(params.searchValue, params.page);
+    loader.classList.add('hidden');
     const markup = imgsTemplate(data.hits);
     gallery.insertAdjacentHTML('beforeend', markup);
-    loader.classList.add('hidden');
     checkBtnStatus();
     smoothScroll();
 
@@ -89,11 +90,12 @@ loadMoreBtn.addEventListener('click', async e => {
     }
   } catch (error) {
     console.error('Error fetching images:', error);
-    showError();
-  } finally {
     loader.classList.add('hidden');
+    showError();
   }
 });
+
+loader.classList.remove('loaderBottom');
 
 function showLoadMoreBtn() {
   loadMoreBtn.classList.remove('hidden');
