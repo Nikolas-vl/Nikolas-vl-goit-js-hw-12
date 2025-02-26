@@ -25,11 +25,9 @@ form.addEventListener('submit', async e => {
   params.searchValue = searchInput.value.trim();
   params.page = 1;
   if (params.searchValue === '') {
-    button.disabled = true;
     return;
   }
 
-  button.disabled = false;
   loader.classList.remove('hidden');
 
   try {
